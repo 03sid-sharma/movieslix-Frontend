@@ -17,7 +17,7 @@ const Pagination = ({ itemsCount, currentPage, pageSize, onPageChange }) => {
             className={page === currentPage ? "page-item active" : "page-item"}
           >
             <a
-              href="#"
+              href="/#"
               className="page-link"
               onClick={() => onPageChange(page)}
             >
