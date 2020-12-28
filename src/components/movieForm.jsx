@@ -1,7 +1,7 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { getMovie, SaveMovie } from "../services/fakeMovieService";
+import { getMovie, saveMovie } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 
 class MovieForm extends Form {
@@ -32,7 +32,7 @@ class MovieForm extends Form {
     this.setState({ genres });
 
     const movieId = this.props.match.params.id;
-    if (movieId == "new") return;
+    if (movieId === "new") return;
 
     const movie = getMovie(movieId);
     if (!movie) return this.props.history.replace("/not-found");
