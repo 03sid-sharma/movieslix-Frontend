@@ -6,6 +6,7 @@ import ListGroup from "./common/listGroup";
 import React, { Component } from "react";
 import MoviesTable from "./moviesTable";
 import _ from "lodash";
+import { Link } from 'react-router-dom';
 
 class Movies extends Component {
   state = {
@@ -85,6 +86,13 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
+          <Link
+            to="/movies/new"
+            className="btn btn-primary"
+            style={{ marginBottom: 20 }}
+          >
+            New Movie
+          </Link>
           <p>Total of {totalCount} movies are present in stock</p>
           <MoviesTable
             movies={movies}
