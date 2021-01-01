@@ -53,7 +53,6 @@ class Movies extends Component {
     this.setState({ searchQuery: query, selectedGenre: null, currentPage: 1 });
   };
 
-
   handleSort = (sortColumn) => {
     this.setState({ sortColumn });
   };
