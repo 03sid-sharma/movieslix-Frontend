@@ -12,9 +12,7 @@ export function getMovies() {
 }
 
 export function deleteMovie(movieId) {
-  return http.delete(movieUrl(movieId), {
-    headers: { "x-auth-token": localStorage.getItem("token") },
-  });
+  return http.delete(movieUrl(movieId));
 }
 
 export function getMovie(movieId) {
@@ -25,12 +23,8 @@ export function saveMovie(movie) {
   if (movie._id) {
     const body = { ...movie };
     delete body._id;
-    return http.put(movieUrl(movie._id), body, {
-      headers: { "x-auth-token": localStorage.getItem("token") },
-    });
+    return http.put(movieUrl(movie._id), body);
   }
 
-  return http.post(apiEndpoint, movie, {
-    headers: { "x-auth-token": localStorage.getItem("token") },
-  });
+  return http.post(apiEndpoint, movie);
 }
