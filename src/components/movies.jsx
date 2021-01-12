@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Loader from 'react-loader-spinner';
 import { toast } from "react-toastify";
 import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
+import SearchBox from "./searchBox";
+import { paginate } from "../utils/paginate";
 import { getMovies, deleteMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
-import { paginate } from "../utils/paginate";
 import _ from "lodash";
-import SearchBox from "./searchBox";
 
 class Movies extends Component {
   state = {
@@ -96,7 +97,21 @@ class Movies extends Component {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
     const { user } = this.props;
-    if (count === 0) return <p>There are no movies</p>;
+    if (count === 0)
+      return (
+        <Loader
+          type="TailSpin"
+          color="#00BFFF"
+          height={80}
+          width={80}
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+      );
 
     const { totalCount, data: movies } = this.getPagedData();
     return (
