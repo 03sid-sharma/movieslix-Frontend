@@ -1,7 +1,6 @@
 # MoviesLix
 
-Hi! This is Fullstack Video Rental Website with NoSQL Database and Automated Testing
-
+Hi! This is Fullstack Video Rental Website with NoSQL Database
 
 # Tech-Stack
 
